@@ -42,7 +42,7 @@ public class CartController {
 	@PutMapping("/add")
 	public ResponseEntity<CartItem> addItemToCart(@RequestBody AddItemRequest req, 
 			@RequestHeader("Authorization") String jwt) throws UserException, ProductException{
-		
+		System.out.println("AddItemtoCart"+req.getProductId());
 		User user=userService.findUserByJwt(jwt);
 		
 		CartItem item = cartService.addCartItem(user.getId(), req);

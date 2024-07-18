@@ -1,5 +1,6 @@
 package com.vinay.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -40,6 +41,12 @@ public class UserServiceImplementation implements UserService{
 			throw new UserException("User not found with email - "+email);
 		}
 		return user;
+	}
+	
+	@Override
+	public List<User> findAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.findAllByOrderByCreatedAtDesc();
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import com.vinay.model.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+	
     public Category findByName(String name);
     
     @Query("SELECT c FROM Category c " +

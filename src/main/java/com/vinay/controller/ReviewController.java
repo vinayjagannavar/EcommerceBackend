@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zosh.exception.ProductException;
-import com.zosh.exception.UserException;
-import com.zosh.modal.Review;
-import com.zosh.modal.User;
-import com.zosh.request.ReviewRequest;
-import com.zosh.service.ReviewService;
-import com.zosh.service.UserService;
+import com.vinay.exception.ProductException;
+import com.vinay.exception.UserException;
+import com.vinay.model.Review;
+import com.vinay.model.User;
+import com.vinay.request.ReviewRequest;
+import com.vinay.service.ReviewService;
+import com.vinay.service.UserService;
 
 @RestController
 @RequestMapping("/api/reviews")
@@ -34,7 +34,7 @@ public class ReviewController {
 	}
 	@PostMapping("/create")
 	public ResponseEntity<Review> createReviewHandler(@RequestBody ReviewRequest req,@RequestHeader("Authorization") String jwt) throws UserException, ProductException{
-		User user=userService.findUserProfileByJwt(jwt);
+		User user=userService.findUserByJwt(jwt);
 		System.out.println("product id "+req.getProductId()+" - "+req.getReview());
 		Review review=reviewService.createReview(req, user);
 		System.out.println("product review "+req.getReview());

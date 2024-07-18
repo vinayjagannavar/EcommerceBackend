@@ -3,6 +3,8 @@ package com.vinay.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.vinay.exception.ProductException;
 import com.vinay.model.Product;
 import com.vinay.model.Rating;
@@ -10,6 +12,7 @@ import com.vinay.model.User;
 import com.vinay.repository.RatingRepository;
 import com.vinay.request.RatingRequest;
 
+@Service
 public class RatingServiceImplementation implements RatingService{
 
 	private RatingRepository ratingRepository;

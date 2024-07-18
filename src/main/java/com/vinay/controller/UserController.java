@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zosh.exception.UserException;
-import com.zosh.modal.User;
-import com.zosh.service.UserService;
+import com.vinay.exception.UserException;
+import com.vinay.model.User;
+import com.vinay.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
@@ -25,7 +25,7 @@ public class UserController {
 	public ResponseEntity<User> getUserProfileHandler(@RequestHeader("Authorization") String jwt) throws UserException{
 
 		System.out.println("/api/users/profile");
-		User user=userService.findUserProfileByJwt(jwt);
+		User user=userService.findUserByJwt(jwt);
 		return new ResponseEntity<User>(user,HttpStatus.ACCEPTED);
 	}
 

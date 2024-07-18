@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zosh.exception.UserException;
-import com.zosh.modal.User;
-import com.zosh.service.UserService;
+import com.vinay.exception.UserException;
+import com.vinay.model.User;
+import com.vinay.service.UserService;
 
 @RestController
 @RequestMapping("/api/admin")

@@ -6,19 +6,19 @@ import java.util.Set;
 import com.vinay.model.Size;
 
 public class CreateProductRequest {
-	private String title;
-	private String description;
-	private int price;
-	private int discountedPrice;
-	private int discountPercent;
-	private int quantity;
-	private String brand;
-	private String color;
-	private Set<Size> size = new HashSet<>();
-	private String ImageUrl;
-	private String topLevelCategory;
-	private String topSecondCategory;
-	private String topThirdCategory;
+    private String title;
+    private String description;
+    private int price;
+    private int discountedPrice;
+    private int discountPercent;
+    private int quantity;
+    private String brand;
+    private String color;
+    private Set<Size> size = new HashSet<>();
+    private String imageUrl;
+    private String topLevelCategory;
+    private String topSecondCategory;
+    private String topThirdCategory;
 	public String getTitle() {
 		return title;
 	}
@@ -74,10 +74,10 @@ public class CreateProductRequest {
 		this.size = size;
 	}
 	public String getImageUrl() {
-		return ImageUrl;
+		return imageUrl;
 	}
 	public void setImageUrl(String imageUrl) {
-		ImageUrl = imageUrl;
+		this.imageUrl = imageUrl;
 	}
 	public String getTopLevelCategory() {
 		return topLevelCategory;

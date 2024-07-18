@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zosh.exception.CartItemException;
-import com.zosh.exception.UserException;
-import com.zosh.modal.CartItem;
-import com.zosh.modal.User;
-import com.zosh.response.ApiResponse;
-import com.zosh.service.CartItemService;
-import com.zosh.service.UserService;
+import com.vinay.exception.CartItemException;
+import com.vinay.exception.UserException;
+import com.vinay.model.CartItem;
+import com.vinay.model.User;
+import com.vinay.response.ApiResponse;
+import com.vinay.service.CartItemService;
+import com.vinay.service.UserService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -33,7 +33,7 @@ public class CartItemController {
 	@DeleteMapping("/{cartItemId}")
 	public ResponseEntity<ApiResponse>deleteCartItemHandler(@PathVariable Long cartItemId, @RequestHeader("Authorization")String jwt) throws CartItemException, UserException{
 		
-		User user=userService.findUserProfileByJwt(jwt);
+		User user=userService.findUserByJwt(jwt);
 		cartItemService.removeCartItem(user.getId(), cartItemId);
 		
 		ApiResponse res=new ApiResponse("Item Remove From Cart",true);
@@ -44,7 +44,7 @@ public class CartItemController {
 	@PutMapping("/{cartItemId}")
 	public ResponseEntity<CartItem>updateCartItemHandler(@PathVariable Long cartItemId, @RequestBody CartItem cartItem, @RequestHeader("Authorization")String jwt) throws CartItemException, UserException{
 		
-		User user=userService.findUserProfileByJwt(jwt);
+		User user=userService.findUserByJwt(jwt);
 		
 		CartItem updatedCartItem =cartItemService.updateCartItem(user.getId(), cartItemId, cartItem);
 		

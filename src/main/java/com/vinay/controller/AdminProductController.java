@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,8 @@ import com.vinay.exception.ProductException;
 import com.vinay.model.Product;
 import com.vinay.request.CreateProductRequest;
 import com.vinay.service.ProductService;
-import com.zosh.response.ApiResponse;
+import com.vinay.response.ApiResponse;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/api/admin/products")
@@ -30,6 +30,11 @@ public class AdminProductController {
 	
 	@PostMapping("/")
 	public ResponseEntity<Product> createProductHandler(@RequestBody CreateProductRequest req) throws ProductException{
+		
+		
+		System.out.println("title: "+req.getTitle());
+		System.out.println("Toplevel: "+req.getTopLevelCategory());
+		System.out.println("Secondlevel: "+req.getTopSecondCategory());
 		Product product = productService.createProduct(req);
 		return new ResponseEntity<Product>(product,HttpStatus.ACCEPTED);
 	}
