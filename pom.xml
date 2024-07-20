@@ -93,14 +93,6 @@
 	    	<version>20210307</version>
 		</dependency>
 
-		
-		<!-- https://mvnrepository.com/artifact/com.razorpay/razorpay-java -->
-		<dependency>
-		    <groupId>com.razorpay</groupId>
-		    <artifactId>razorpay-java</artifactId>
-		    <version>1.4.3</version>
-		</dependency>
-
 		<!-- swagger ui -->
 		   <dependency>
 		      <groupId>org.springdoc</groupId>
@@ -109,22 +101,29 @@
 		   </dependency>
 
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    		<scope>provided</scope>
 		</dependency>
 
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.paypal.sdk</groupId>
+    		<artifactId>paypal-core</artifactId>
+    		<version>1.7.2</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.paypal.sdk</groupId>
+    		<artifactId>rest-api-sdk</artifactId>
+    		<version>1.14.0</version>
+		</dependency>
 
-		<dependency>
-			<groupId>com.zosh</groupId>
-			<artifactId>e-commerce</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vinay</groupId>
-			<artifactId>ProductDemoDB</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
